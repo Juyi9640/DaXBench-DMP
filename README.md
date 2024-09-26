@@ -1,7 +1,8 @@
 # DaXBench-DMP
 We employ DaXBench as a cloth simulator to analyze Deformable Object Manipulation (DOM), and the Dynamic Movement Primitives (DMP) method is applied to generate a series of parameterized trajectories by imitation learning.  The trajectories then are used in DaXBench cloth simulation environment to do folding manipulation.
 
-[1]: https://github.com/straizys/cartesian-dmp                     "cartesian-dmp"
+[1]: https://github.com/straizys/cartesian-dmp                               "cartesian-dmp"
+[2]: https://github.com/Juyi9640/DaXBench-DMP/tree/main/cartesian-dmp        "modified cartesian-dmp"
 
 ### Major dependencies
 
@@ -10,8 +11,8 @@ We employ DaXBench as a cloth simulator to analyze Deformable Object Manipulatio
 
 
 
-## Part A: Cartesian-DMP
-In this part, the DMP algorithms from [cartesian-dmp][1] is choosed and adapted to do imitation learning. We selected 6 different trajectories as demonstrations, which were used in DMP. These 6 trajectories include: helix, sine wave, spiral, parabola, the trajectory of dot_31 during the folding process in DaXBench, and a random curve containing sinusoidal perturbations along the y-direction, with Gaussian noise added to its x,y and z values.
+## Part A: cartesian-dmp
+In this [modified cartesian-dmp][2], the DMP algorithms originalliy from [cartesian-dmp][1] is chosen and adapted to do imitation learning. We selected 6 different trajectories as demonstrations, which were used in DMP. These 6 trajectories include: helix, sine wave, spiral, parabola, the trajectory of dot_31 during the folding process in DaXBench, and a random curve containing sinusoidal perturbations along the y-direction, with Gaussian noise added to its x,y and z values.
 <p align="center">
   <img src="pictures/1.png" width="800" title="hover text">
 </p>
@@ -34,6 +35,42 @@ We utilized Fréchet distance and Hausdorff distance as metrics to quantify the 
 <p align="center">
   <img src="pictures/metrics.png" width="600" title="hover text">
 </p>
+
+## Part B: DaXBench DMP Integration
+As mentioned, we need a custom trajectory that can be parameterized to control the cloth
+gripper point for cloth manipulation. 
+First, the user clicks any start point and goal point on cloth,
+the program then generates a curve which connects the start point and goal
+point. This trajectory is then fed into the DMP algorithm, producing a new imitated trajectory.
+The DMP trajectory is sent to DaXBench, ultimately enabling the control of the cloth
+gripper point according to the DMP trajectory for cloth manipulation. Here is a demonstration:
+<p align="center">
+  <img src="gif/fold cloth with dmp.gif" width="800" title="hover text">
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
