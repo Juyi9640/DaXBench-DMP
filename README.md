@@ -91,7 +91,7 @@ cd DaXBench
 pip install .
 ```
 You can now run 'fold_cloth1_env.py' to test if it's correctly installed. <br />
-(Tipps: Be prepared to some errors, for example you have to install the version of JAX without GPU-enabled, and try to modify the 'py_render.py' such that the program runs (Or use [py_render.py][9] here). Also if it complains about not finding/missing some files, just go to [DaXBench][5] repo and find the files and copy paste into your package at corresponding places.
+(Tipps: Be prepared to some errors, for example you have to install the version of JAX without GPU-enabled, and try to modify the 'py_render.py' such that the program runs (Or use [py_render.py][9] here). Also if it complains about not finding/missing some files, just go to [DaXBench][5] repo and find the files and copy paste into your package at corresponding places.)
 
 ### Integrate DMP to DaXBench
 1. copy the folder [cartesian_dmp][6] and paste it to: /home/user/miniconda3/envs/new_mb/lib/python3.9/site-packages/daxbench/core
