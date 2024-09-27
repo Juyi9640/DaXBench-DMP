@@ -1,8 +1,10 @@
 # DaXBench-DMP
 We employ DaXBench as a cloth simulator to analyze Deformable Object Manipulation (DOM), and the Dynamic Movement Primitives (DMP) method is applied to generate a series of parameterized trajectories by imitation learning.  The trajectories then are used in DaXBench cloth simulation environment to do folding manipulation.
 
-[1]: https://github.com/straizys/cartesian-dmp                               "cartesian-dmp"
-[2]: https://github.com/Juyi9640/DaXBench-DMP/tree/main/cartesian-dmp        "modified cartesian-dmp"
+[1]: https://github.com/straizys/cartesian-dmp                                 "cartesian-dmp"
+[2]: https://github.com/Juyi9640/DaXBench-DMP/tree/main/cartesian-dmp          "modified cartesian-dmp"
+[3]: https://docs.anaconda.com/miniconda/                                      "Miniconda"
+[4]:https://github.com/Juyi9640/DaXBench-DMP/blob/main/DaXBench-DMP/mb_mf.yml  "mb_mf.yml"
 
 ### Major dependencies
 
@@ -45,14 +47,36 @@ point. This trajectory is then fed into the DMP algorithm, producing a new imita
 The DMP trajectory is sent to DaXBench, ultimately enabling the control of the cloth
 gripper point according to the DMP trajectory for cloth manipulation. Here is a demonstration:
 <p align="center">
-  <img src="gif/fold cloth with dmp.gif" width="800" title="hover text">
+  <img src="gif/dmp traj.gif" width="800" title="hover text">
 </p>
 
 
 ### Installation
-
-
-
+Set up DaXBench environment using [Miniconda][3]:
+```bash
+mkdir -p ~/miniconda3
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm ~/miniconda3/miniconda.sh
+```
+Open conda base environment:
+```bash
+conda activate
+```
+Download [mb_mf.yml][4] to a directory, navigate to this directory, and create the conda environment using the 'mb_mf.yml' file:
+```bash
+conda env create -f mb_mf.yml
+```
+Activate the newly created conda environment:
+```bash
+conda activate new_mb
+```
+Clone the DaXBench repository to a specific folder and install the DaXBench package:
+```bash
+git clone https://github.com/AdaCompNUS/DaXBench.git
+cd DaXBench
+pip install .
+```
 
 
 
